@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse - Genres</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="shortcut icon" href="./logo1.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo" id="logo">
+            <a href="./index.html">
+                <img src="./logo1.png" alt="Movies Logo">
+            </a>
+        </div>
+        <div>
+            <h1 style="color: #ffA500;"><b><i>CineVerse</i></b></h1>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html"><b>Home</b></a>
+            <a href="search.html" id="search-submit" class="search-btn"><b>Search</b></a>
+        </nav>
+        <!-- Theme Toggle Button with Half Moon Icon -->
+        <button id="theme-toggle" class="theme-button">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="user-logo">
+            <img src="./user.jpg" style="width: 50px; height: 50px; border-radius: 50%;" alt="User Logo">
+        </div>
+        
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <section class="genre-section">
+            <h2 style="color: #ffA500;"><b>Select a Genre</b></h2>
+            <div class="genre-buttons">
+                <button class="genre-button" onclick="fetchMoviesByGenre(28)" style="color: #ffA500;"><b>Action</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(12)" style="color: #ffA500;"><b>Adventure</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(16)" style="color: #ffA500;"><b>Animation</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(35)" style="color: #ffA500;"><b>Comedy</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(80)" style="color: #ffA500;"><b>Crime</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(99)" style="color: #ffA500;"><b>Documentary</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(18)" style="color: #ffA500;"><b>Drama</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(10751)" style="color: #ffA500;"><b>Family</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(14)" style="color: #ffA500;"><b>Fantasy</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(36)" style="color: #ffA500;"><b>History</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(27)" style="color: #ffA500;"><b>Horror</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(10402)" style="color: #ffA500;"><b>Music</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(9648)" style="color: #ffA500;"><b>Mystery</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(878)" style="color: #ffA500;"><b>Science Fiction</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(10749)" style="color: #ffA500;"><b>Romance</b></button>
+                <button class="genre-button" onclick="fetchMoviesByGenre(28)" style="color: #ffA500;"><b>Thriller</b></button>
+            </div>
+            <div class="movie-container" id="genre-movie-container">
+                <!-- Movie cards for selected genre will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 CineVerse. All rights reserved.</p>
+            <p>Contact us: info@CineVerse.com</p>
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="genre.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved user preference, if any, and apply the theme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Show sun icon in light mode
+        }
+
+        themeToggle.addEventListener('click', () => {
+            // Toggle the theme
+            body.classList.toggle('light-theme');
+
+            // Save the user's preference in localStorage
+            if (body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change to sun icon
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Change back to moon icon
+            }
+        });
+    </script>
+</body>
+</html>

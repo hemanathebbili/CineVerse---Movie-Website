@@ -1,0 +1,275 @@
+/* General Page Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for better contrast */
+    overflow-x: hidden; /* Prevent horizontal scroll on the body */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #111;
+}
+
+.logo img {
+    width: 100px; /* Adjust the size of your logo */
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Hover effect color */
+}
+
+/* Centered Search Box */
+.search-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    width: 400px;
+    margin: 20px 0;
+}
+
+/* Movie Section Styles */
+.movie-section {
+    padding: 20px 0; /* Add padding to the section */
+}
+
+.movie-container {
+    display: flex; /* Enable flexbox for horizontal layout */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    padding: 10px 0; /* Padding for the container */
+    gap: 20px; /* Space between movie cards */
+}
+
+.movie-card {
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 200px; /* Width of each movie card, increased for visibility */
+    background-color: #222; /* Card background */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    text-align: center; /* Center text */
+    margin: 0; /* No margin */
+}
+
+/* Styles for the Search Section */
+.search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
+    min-height: 50vh; /* Adjusts the minimum height to center vertically */
+    text-align: center;
+    margin-top: 20px; /* Adds some space between the header and search box */
+}
+
+/* Search box container */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px; /* Space between the search bar and movie results */
+}
+
+#search-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ffA500; /* Border color */
+    border-radius: 8px 0 0 8px;
+}
+
+#search-button {
+    padding: 10px 15px;
+    background-color: #ffA500; /* Button background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #e59b00; /* Hover state for the button */
+}
+
+/* Styles for displaying movie results */
+.movie-results {
+    display: flex;
+    flex-wrap: wrap; /* Allow movie cards to wrap to the next line if needed */
+    justify-content: center; /* Center the movie cards horizontally */
+    gap: 10px; /* Decreased space between each movie card */
+    margin-top: 20px; /* Space between search box and movie results */
+}
+
+/* Styles for the Movie Cards */
+.movie-card {
+    background-color: #333; /* Dark background for movie cards */
+    color: white; /* Default text color for other text in the card */
+    border-radius: 8px;
+    width: 150px; /* Adjust width as needed */
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.movie-card h4 {
+    color: #ffA500; /* Change this color to whatever you want for the movie title */
+    margin: 5px 0; /* Add some margin if needed */
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Styles for the Search Results Text */
+.results-text {
+    color: #ffA500; /* Orange color for the results text */
+    font-size: 20px; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    margin: 20px 0; /* Space between the results text and other elements */
+    text-align: center; /* Center the results text */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center; /* Center text in the footer */
+    padding: 20px 0; /* Add padding to footer */
+    background-color: #111; /* Background color for footer */
+}
+
+.footer-content {
+    color: #fff; /* Footer text color */
+}
+
+.social-media {
+    margin: 10px 0; /* Space above and below social media icons */
+}
+
+.social-media a {
+    color: #fff; /* Social media link color */
+    margin: 0 10px; /* Space between social media icons */
+    text-decoration: none; /* No underline */
+}
+
+.social-media a:hover {
+    color: #f39c12; /* Hover effect color for social media links */
+}
+
+/* Styles for Genre Buttons */
+.genre-button {
+    padding: 10px 15px; /* Button padding */
+    background-color: #222; /* Default background color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor change on hover */
+    transition: background-color 0.3s, color 0.3s; /* Transition for smooth effect */
+}
+
+.genre-button.active {
+    background-color: #ffA500; /* Active background color */
+    color: #000; /* Active text color */
+}
+
+
+
+/* General Page Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Default black background */
+    color: #fff; /* Default white text */
+    overflow-x: hidden; /* Prevent horizontal scroll on the body */
+}
+
+/* Light Theme Styles */
+body.light-theme {
+    background-color: #fff; /* Light background color */
+    color: #000; /* Dark text color */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #111;
+}
+
+.logo img {
+    width: 100px; /* Adjust the size of your logo */
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Hover effect color */
+}
+
+/* Theme Toggle Button */
+.theme-button {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: #fff; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 24px; /* Size of the icon */
+    margin-left: 20px; /* Space between the button and user logo */
+}
+
+.theme-button:hover {
+    color: #f39c12; /* Color change on hover */
+}
+
+/* Other existing styles remain unchanged... */
+
+
+
+
+
+/* Styles for the Slider Section */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Optional: set a max width to control slider size */
+    margin: 0 auto; /* Center the slider */
+    overflow: hidden; /* Hide overflow */
+    max-height: 500px; /* Increased value to give the slider a bit more height */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition effect */
+}
+
+.slide {
+    min-width: 100%; /* Ensure each slide takes up full width */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.slide img {
+    width: 100%; /* Make image fit the width of the container */
+    height: 100%; /* Ensure image respects the container's height */
+    object-fit: contain; /* Ensure the entire image fits inside the slide without being cropped */
+    background-color: #000; /* Optional: add a background color for better visibility */
+}
+

@@ -1,0 +1,65 @@
+/* Genre Section Styles */
+h2{
+    align-items: center;
+}
+.genre-section {
+    padding: 20px;
+    text-align: center; /* Center text within the section */
+    margin-bottom: 60px; /* Space for footer */
+}
+
+.genre-section h2 {
+    font-size: 24px; /* Adjust font size for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.genre-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of buttons */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 15px; /* Space between buttons */
+}
+
+.genre-button {
+    background-color: #ffA500; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 15px 25px; /* Increased padding for better appearance */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+    font-size: 16px; /* Increase font size for better visibility */
+    flex: 0 1 calc(33.333% - 10px); /* 3 buttons per row */
+    min-width: 150px; /* Minimum width for buttons */
+}
+
+.genre-button:hover {
+    background-color: #e59b00; /* Darker shade for hover effect */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center; /* Center text in the footer */
+    padding: 20px 0; /* Add padding to footer */
+    background-color: #111; /* Background color for footer */
+}
+
+.footer-content {
+    color: #fff; /* Footer text color */
+}
+
+.social-media {
+    margin: 10px 0; /* Space above and below social media icons */
+}
+
+.social-media a {
+    color: #fff; /* Social media link color */
+    margin: 0 10px; /* Space between social media icons */
+    text-decoration: none; /* No underline */
+}
+
+.social-media a:hover {
+    color: #f39c12; /* Hover effect color for social media links */
+}
+

@@ -1,0 +1,134 @@
+/* Header Section Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 40px; /* Adjust the logo size to make it smaller */
+    height: 40px; /* Maintain the aspect ratio */
+    margin-right: 10px; /* Add some space to the right of the logo */
+}
+
+header h1 {
+    font-size: 24px; /* Adjust the font size of the title to fit well with the smaller logo */
+    margin: 0;
+    color: #ffA500;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: #ffA500;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px; /* Space between the search bar and movie results */
+}
+
+.user-logo img {
+    width: 40px; /* Smaller user logo size */
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Search section styles */
+.search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+    min-height: 60vh; /* Set minimum height to center vertically */
+    text-align: center;
+}
+
+#search-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ffA500;
+    border-radius: 8px 0 0 8px;
+}
+
+#search-button {
+    padding: 10px 15px;
+    background-color: #ffA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #e59b00;
+}
+
+.movie-results {
+    display: flex;
+    flex-wrap: wrap; /* Allow movie cards to wrap to the next line */
+    justify-content: center; /* Center the movie cards horizontally */
+    gap: 15px; /* Space between movie cards */
+}
+
+.movie-card {
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #222;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-media a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #ffA500;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="shortcut icon" href="./logo1.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo" id="logo">
+            <a href="./index.html">
+                <img src="./logo1.png" alt="Movies Logo">
+            </a>
+        </div>
+        <div>
+            <h1 style="color: #ffA500;"><b><i>CineVerse</i></b></h1>
+        </div>
+        <nav class="nav-links">
+            <a href="./genre.html"><b>Genre</b></a>
+            <a href="./search.html"><b>Search</b></a>
+        </nav>
+        <!-- Theme Toggle Button with Half Moon Icon -->
+        <button id="theme-toggle" class="theme-button">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="user-logo">
+            <img src="./user.jpg" style="width: 50px; height: 50px; border-radius: 50%;" alt="User Logo">
+        </div>
+        
+    </header>
+    <!-- Slider Section -->
+    <section class="movie-slider">
+        <div class="slider-container">
+            <div class="slides" id="movie-slider">
+                <!-- Movie slides will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Movie Categories Section -->
+        <section class="movie-categories">
+            <h2>Categories</h2>
+            <div class="category" id="now-playing">
+                <h3 style="color: #ffA500;">Now Playing</h3>
+                <div class="movie-container" id="now-playing-movie-container">
+                    <!-- Movie cards for now playing will be inserted here -->
+                </div>
+            </div>
+            <div class="category" id="popular">
+                <h3 style="color: #ffA500;">Popular</h3>
+                <div class="movie-container" id="popular-movie-container">
+                    <!-- Movie cards for popular will be inserted here -->
+                </div>
+            </div>
+            <div class="category" id="trending">
+                <h3 style="color: #ffA500;">Trending</h3>
+                <div class="movie-container" id="trending-movie-container">
+                    <!-- Movie cards for trending will be inserted here -->
+                </div>
+            </div>
+            <div class="category" id="upcoming">
+                <h3 style="color: #ffA500;">Upcoming</h3>
+                <div class="movie-container" id="upcoming-movie-container">
+                    <!-- Movie cards for upcoming will be inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 CineVerse. All rights reserved.</p>
+            <p>Contact us: info@CineVerse.com</p>
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved user preference, if any, and apply the theme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Show sun icon in light mode
+        }
+
+        themeToggle.addEventListener('click', () => {
+            // Toggle the theme
+            body.classList.toggle('light-theme');
+
+            // Save the user's preference in localStorage
+            if (body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change to sun icon
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Change back to moon icon
+            }
+        });
+    </script>
+</body>
+</html>
