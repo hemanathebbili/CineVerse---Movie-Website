@@ -58,6 +58,9 @@ function displayMovies(movies) {
 
         // Append movie card to the container
         movieContainer.appendChild(movieCard);
+        movieCard.addEventListener('click',function(){
+            window.location.href=`details.html?movieId=${movie.id}`
+        });
     });
 }
 
