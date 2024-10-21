@@ -272,4 +272,30 @@ header {
     object-fit: contain; /* Ensure the entire image fits inside the slide without being cropped */
     background-color: #000; /* Optional: add a background color for better visibility */
 }
-
+.movie-header{
+    padding: 20px;
+    height: 400px;
+    width: 60%;
+    margin-right: 40px;
+}
+.posterimg{
+    margin-left: 10%;
+    margin-top: 4%;
+}
+.posterimg img{
+    width: 200px;
+}
+.movie-header,.posterimg{
+    float: left;
+}
+.movie-header h1{
+    color: #ffA500;
+}
+iframe{
+    width: 90%;
+    margin-left: 5%;
+    height: 500px;
+}
+span{
+    color: #ffA500;
+}
