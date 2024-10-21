@@ -28,7 +28,7 @@
 
     <main>
         <div id="movie-details" class="movie-details">
-            <!-- Movie details and video will be inserted here -->
+            <!-- Movie details and player will be inserted here -->
         </div>
     </main>
 
@@ -65,7 +65,7 @@
                 }
                 const movie = await response.json();
                 displayMovieDetails(movie);
-                fetchMovieVideos(movieId); // Fetch movie video data after loading details
+                fetchMovieVideos(movieId); // Fetch movie player after loading details
             } catch (error) {
                 console.error('Error fetching movie details:', error);
             }
@@ -74,17 +74,10 @@
         // Fetch movie video data
         async function fetchMovieVideos(movieId) {
             try {
-                const response = await fetch(`${baseUrl}/movie/${movieId}/videos?api_key=${apiKey}`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch movie videos');
-                }
-                const videoData = await response.json();
-                const trailer = videoData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
-                if (trailer) {
-                    displayMovieTrailer(trailer.key);
-                }
+                // Using the movie embed service with the movieId to display the full movie
+                displayMovieEmbed(movieId);
             } catch (error) {
-                console.error('Error fetching movie videos:', error);
+                console.error('Error displaying the full movie:', error);
             }
         }
 
@@ -93,23 +86,23 @@
             movieDetails.innerHTML = `
                 <div class="movie-header">
                     <h1>${movie.title}</h1>
-                    <p><strong>Release Date:</strong><span>${movie.release_date}</span></p>
+                    <p><strong>Release Date:</strong> <span>${movie.release_date}</span></p>
                     <p><strong>Rating:</strong> <span>${movie.vote_average}</span></p>
                     <p><strong>Genres:</strong> <span>${movie.genres.map(genre => genre.name).join(', ')}</span></p>
                     <p class="overview"><strong>Overview:</strong> <span>${movie.overview}</span></p>
                 </div>
                 <div class="posterimg">
                     <img src="https://image.tmdb.org/t/p/original${movie.poster_path}">
-                    </div>
+                </div>
                 <div id="movie-trailer" class="movie-trailer"></div>
             `;
         }
 
-        // Display the movie trailer
-        function displayMovieTrailer(videoKey) {
+        // Display the full movie player using the movie embed service
+        function displayMovieEmbed(movieId) {
             const movieTrailer = document.getElementById('movie-trailer');
             movieTrailer.innerHTML = `
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoKey}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.2embed.cc/embed/${movieId}" width="100%" height="500" frameborder="0" scrolling="no" allowfullscreen></iframe>
             `;
         }
 
