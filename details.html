@@ -20,6 +20,7 @@
             <h1 style="color: #ffA500;"><b><i>CineVerse</i></b></h1>
         </div>
         <nav class="nav-links">
+            <a href="./index.html"><b>Home</b></a>
             <a href="./genre.html"><b>Genre</b></a>
             <a href="./search.html"><b>Search</b></a>
         </nav>
@@ -77,13 +78,16 @@
         // Display movie details
         function displayMovieDetails(movie) {
             movieDetails.innerHTML = `
-                <div class="movie-header" style="background-image: url('https://image.tmdb.org/t/p/original${movie.backdrop_path}'); background-size: cover; background-position: center;">
+                <div class="movie-header">
                     <h1>${movie.title}</h1>
-                    <p><strong>Release Date:</strong> ${movie.release_date}</p>
-                    <p><strong>Rating:</strong> ${movie.vote_average}</p>
-                    <p><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(', ')}</p>
-                    <p class="overview"><strong>Overview:</strong> ${movie.overview}</p>
+                    <p><strong>Release Date:</strong><span>${movie.release_date}</span></p>
+                    <p><strong>Rating:</strong> <span>${movie.vote_average}</span></p>
+                    <p><strong>Genres:</strong> <span>${movie.genres.map(genre => genre.name).join(', ')}</span></p>
+                    <p class="overview"><strong>Overview:</strong> <span>${movie.overview}</span></p>
                 </div>
+                <div class="posterimg">
+                    <img src="https://image.tmdb.org/t/p/original${movie.poster_path}">
+                    </div>
                 <div id="movie-trailer" class="movie-trailer"></div>
             `;
         }
