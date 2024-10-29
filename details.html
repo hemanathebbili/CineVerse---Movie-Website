@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="shortcut icon" href="./logo1.png" type="image/x-icon">
-    <meta name="description" content="Details of the selected movie, including release date, rating, and overview.">
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="logo" id="logo">
             <a href="./index.html">
-                <img src="./logo1.png" alt="CineVerse Logo">
+                <img src="./logo1.png" alt="Movies Logo">
             </a>
         </div>
         <div>
@@ -28,7 +27,6 @@
     </header>
 
     <main>
-        <div id="loading" style="display: none;">Loading...</div>
         <div id="movie-details" class="movie-details">
             <!-- Movie details and video will be inserted here -->
         </div>
@@ -51,7 +49,6 @@
         const apiKey = '06441985e67b0834a714e7433b1250ca';
         const baseUrl = 'https://api.themoviedb.org/3';
         const movieDetails = document.getElementById('movie-details');
-        const loading = document.getElementById('loading');
 
         // Function to get the movie ID from the URL
         function getMovieId() {
@@ -61,7 +58,6 @@
 
         // Fetch movie details
         async function fetchMovieDetails(movieId) {
-            loading.style.display = 'block'; // Show loading
             try {
                 const response = await fetch(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`);
                 if (!response.ok) {
@@ -69,21 +65,27 @@
                 }
                 const movie = await response.json();
                 displayMovieDetails(movie);
-                displayMovieTrailer(movie); // Display the movie using the movie slug
+                fetchMovieVideos(movieId); // Fetch movie video data after loading details
             } catch (error) {
-                movieDetails.innerHTML = '<p>Failed to load movie details. Please try again later.</p>';
                 console.error('Error fetching movie details:', error);
-            } finally {
-                loading.style.display = 'none'; // Hide loading
             }
         }
 
-        // Generate a slug from the movie title
-        function generateSlug(title) {
-            return title
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric characters with hyphens
-                .replace(/^-+|-+$/g, ''); // Trim leading and trailing hyphens
+        // Fetch movie video data
+        async function fetchMovieVideos(movieId) {
+            try {
+                const response = await fetch(`${baseUrl}/movie/${movieId}/videos?api_key=${apiKey}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch movie videos');
+                }
+                const videoData = await response.json();
+                const trailer = videoData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+                if (trailer) {
+                    displayMovieTrailer(trailer.key);
+                }
+            } catch (error) {
+                console.error('Error fetching movie videos:', error);
+            }
         }
 
         // Display movie details
@@ -91,24 +93,23 @@
             movieDetails.innerHTML = `
                 <div class="movie-header">
                     <h1>${movie.title}</h1>
-                    <p><strong>Release Date:</strong> <span>${movie.release_date}</span></p>
+                    <p><strong>Release Date:</strong><span>${movie.release_date}</span></p>
                     <p><strong>Rating:</strong> <span>${movie.vote_average}</span></p>
                     <p><strong>Genres:</strong> <span>${movie.genres.map(genre => genre.name).join(', ')}</span></p>
                     <p class="overview"><strong>Overview:</strong> <span>${movie.overview}</span></p>
                 </div>
                 <div class="posterimg">
-                    <img src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title} Poster" style="max-width: 100%; height: auto;">
-                </div>
+                    <img src="https://image.tmdb.org/t/p/original${movie.poster_path}">
+                    </div>
                 <div id="movie-trailer" class="movie-trailer"></div>
             `;
         }
 
-        // Display the embedded movie
-        function displayMovieTrailer(movie) {
-            const slug = generateSlug(movie.title);
+        // Display the movie trailer
+        function displayMovieTrailer(videoKey) {
             const movieTrailer = document.getElementById('movie-trailer');
             movieTrailer.innerHTML = `
-                <iframe width="100%" height="500" src="https://flixhq.to/watch/${slug}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoKey}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             `;
         }
 
